@@ -1,0 +1,44 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="{% static 'output.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'swiper-bundle.min.css' %}"/>
+    <script src="{% static 'swiper-bundle.min.js' %}"></script>
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body class="relative">
+    <header class='h-[90px] w-full md:h-[135px] py-2 md:flex md:flex-col justify-center items-center lg:h-[90px] lg:flex-row lg:justify-between bg-zinc-900 px-3 w-full'>
+        <a href = "{% url 'index' %}"><img src='{% static "img/logo.png" %}' alt='img' class='h-20	w-auto' /></a >
+          <div class='hidden md:flex flex-row justify-center items-center lg:items-center gap-10  my-2 text-white text-lg'>
+            {% if not request.user.is_superuser %}
+                <a href = "{% url 'index' %}" class='hover:text-red-500'>Главная</a >
+                <a href = "{% url 'about' %}" class='hover:text-red-500'>О компании</a >
+                <a href = "{% url 'contact' %}" class='hover:text-red-500'>Контакты</a >
+                <a href = "{% url 'services' %}" class='hover:text-red-500'>Услуги</a >
+            {% else %}
+                <a href = "{% url 'panel_admin' %}" class='hover:text-red-500'>Панель администратора</a >
+            {% endif %}
+            {% if not request.user.is_superuser %}
+                {% if request.user.is_anonymous %}
+                    <a href="{% url 'login' %}">
+                      <svg class='h-6 fill-white' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M406.5 399.6C387.4 352.9 341.5 320 288 320H224c-53.5 0-99.4 32.9-118.5 79.6C69.9 362.2 48 311.7 48 256C48 141.1 141.1 48 256 48s208 93.1 208 208c0 55.7-21.9 106.2-57.5 143.6zm-40.1 32.7C334.4 452.4 296.6 464 256 464s-78.4-11.6-110.5-31.7c7.3-36.7 39.7-64.3 78.5-64.3h64c38.8 0 71.2 27.6 78.5 64.3zM256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zm0-272a40 40 0 1 1 0-80 40 40 0 1 1 0 80zm-88-40a88 88 0 1 0 176 0 88 88 0 1 0 -176 0z"/></svg>
+                    </a>
+                {% else %}
+                    <a href="{% url 'account' %}">
+                      <svg class='h-6 fill-white' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M406.5 399.6C387.4 352.9 341.5 320 288 320H224c-53.5 0-99.4 32.9-118.5 79.6C69.9 362.2 48 311.7 48 256C48 141.1 141.1 48 256 48s208 93.1 208 208c0 55.7-21.9 106.2-57.5 143.6zm-40.1 32.7C334.4 452.4 296.6 464 256 464s-78.4-11.6-110.5-31.7c7.3-36.7 39.7-64.3 78.5-64.3h64c38.8 0 71.2 27.6 78.5 64.3zM256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zm0-272a40 40 0 1 1 0-80 40 40 0 1 1 0 80zm-88-40a88 88 0 1 0 176 0 88 88 0 1 0 -176 0z"/></svg>
+                    </a>
+                {% endif %}
+            {% endif %}
+          </div>
+    </header>
+        {% block content %}
+        {% endblock %}
+    <footer class='bg-zinc-900 flex flex-col items-center p-5'>
+        <a href="{% url 'index' %}"><img src="{% static 'img/logo.png' %}" alt='img' class='h-20 w-auto' /></a>
+        <p class='text-red-600 border-t w-11/12 text-center mt-2'>Zemes&copy;. All rights reserved.</p>
+    </footer>
+</body>
+</html>

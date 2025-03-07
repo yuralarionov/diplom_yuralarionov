@@ -1,0 +1,119 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Услуги{% endblock %}
+{% block content %}
+    <div class='gap-10 flex flex-col lg:flex lg:flex-row justify-around  bg-gray-200 p-8 gap-10'>
+        <div>
+          <h1 class='font-bold text-slate-400	'>НАШИ УСЛУГИ</h1>
+          <h1 class='text-3xl	font-thin	mt-5'>НИЖЕ ПРИВЕДЕНЫ НЕКОТОРЫЕ</h1>
+          <h1 class='text-3xl font-extrabold mt-1'>ИЗ УСЛУГ ПО ОБСЛУЖИВАНИЮ АВТОМОБИЛЕЙ,<br> КОТОРЫЕ МЫ ПРЕДЛГАЕМ:</h1>
+          <p class='mt-6 text-slate-600'>Познакомьтесь с квалифицированной командой механиков
+              <br>с более чем 5-летним безупречным опытом работы в сфере ремонта автомобилей!<br>Мы используем только высококачественные запчасти
+              <br>и стремимся сделать ваши поездки безопасными и комфортными!<br>Мы всегда рады помочь вам в решении этих задач.</p>
+          <button id="openModal" class='p-3 mt-6	bg-red-600 text-slate-100 font-bold hover:bg-gray-900'>ЗАПИСАТЬСЯ НА ПРИЁМ</button>
+        </div>
+        <div class="flex flex-col justify-center">
+            <ul class='flex flex-col justify-center gap-2'>
+              <li class='flex flex-row'>
+                <svg class='h-5 w-5 fill-red-600' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"><path d="M246.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-9.2-9.2-22.9-11.9-34.9-6.9s-19.8 16.6-19.8 29.6l0 256c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l128-128z"/></svg>
+                <p>Общий ремонт и техническое обслуживание автомобилей</p>
+              </li>
+              <li class='flex flex-row'>
+                <svg class='h-5 w-5 fill-red-600' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"><path d="M246.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-9.2-9.2-22.9-11.9-34.9-6.9s-19.8 16.6-19.8 29.6l0 256c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l128-128z"/></svg>
+                <p>Профилактическое обслуживание транспортных средств</p>
+              </li>
+              <li class='flex flex-row'>
+                <svg class='h-5 w-5 fill-red-600' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"><path d="M246.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-9.2-9.2-22.9-11.9-34.9-6.9s-19.8 16.6-19.8 29.6l0 256c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l128-128z"/></svg>
+                <p>Мойка и детейлинг</p>
+              </li>
+              <li class='flex flex-row'>
+                <svg class='h-5 w-5 fill-red-600' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"><path d="M246.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-9.2-9.2-22.9-11.9-34.9-6.9s-19.8 16.6-19.8 29.6l0 256c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l128-128z"/></svg>
+                <p>Ремонт и замена тормозов</p>
+              </li>
+              <li class='flex flex-row'>
+                <svg class='h-5 w-5 fill-red-600' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"><path d="M246.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-9.2-9.2-22.9-11.9-34.9-6.9s-19.8 16.6-19.8 29.6l0 256c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l128-128z"/></svg>
+                <p>Ремонт топливной системы</p>
+              </li>
+              <li class='flex flex-row'>
+                <svg class='h-5 w-5 fill-red-600' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"><path d="M246.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-9.2-9.2-22.9-11.9-34.9-6.9s-19.8 16.6-19.8 29.6l0 256c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l128-128z"/></svg>
+                <p>Ремонт и замена шин</p>
+              </li>
+              <li class='flex flex-row'>
+                <svg class='h-5 w-5 fill-red-600' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"><path d="M246.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-9.2-9.2-22.9-11.9-34.9-6.9s-19.8 16.6-19.8 29.6l0 256c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l128-128z"/></svg>
+                <p>Диагностика</p>
+              </li>
+              <li class='flex flex-row'>
+                <svg class='h-5 w-5 fill-red-600' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"><path d="M246.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-9.2-9.2-22.9-11.9-34.9-6.9s-19.8 16.6-19.8 29.6l0 256c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l128-128z"/></svg>
+                <p>Замена и установка допоборудования</p>
+              </li>
+              <li class='flex flex-row'>
+                <svg class='h-5 w-5 fill-red-600' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"><path d="M246.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-9.2-9.2-22.9-11.9-34.9-6.9s-19.8 16.6-19.8 29.6l0 256c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l128-128z"/></svg>
+                <p>Тюнинг</p>
+              </li>
+            </ul>
+        </div>
+      </div>
+      <div class='p-14 flex flex-col justify-center items-center'>
+        <div class='flex flex-col justify-center items-center md:flex md:flex-row gap-3 text-4xl'>
+          <h1>КАК ЭТО</h1>
+          <h1 class='font-bold'>РАБОТАЕТ</h1>
+        </div>
+        <div class="swiper mySwiper h-full w-1/2 mt-10">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide flex justify-center items-center text-center text-[18px]"><img src="{% static 'img/services_img/img2.jpg' %}" alt="" class="object-cover "></div>
+                <div class="swiper-slide flex justify-center items-center text-center text-[18px]"><img src="{% static 'img/services_img/img3.jpg' %}" alt="" class="object-cover "></div>
+                <div class="swiper-slide flex justify-center items-center text-center text-[18px]"><img src="{% static 'img/services_img/img4.jpg' %}" alt="" class="object-cover "></div>
+                <div class="swiper-slide flex justify-center items-center text-center text-[18px]"><img src="{% static 'img/services_img/img1.jpg' %}" alt="" class="object-cover "></div>
+            </div>
+            <div class="swiper-pagination text-red-700"></div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+        <script>
+            var swiper = new Swiper(".mySwiper", {
+
+              navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+              },
+              pagination: {
+                el: ".swiper-pagination",
+              },
+              mousewheel: true,
+              keyboard: true,
+            });
+          </script>
+
+      </div>
+<div id="myModal" class="hidden fixed z-30 top-0 left-0 w-full h-full bg-black/75">
+    <div class="modal-content bg-white sm:w-full h-full md:w-1/2 lg:w-1/4">
+        <div class="flex justify-end">
+            <div class="close bg-black h-8 w-8 flex justify-center items-center">
+                <svg class='h-6 fill-white font-light hover:fill-red-700' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/></svg>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+const modal = document.getElementById("myModal");
+const btn = document.getElementById("openModal");
+const span = document.getElementsByClassName("close")[0];
+
+btn.onclick = function() {
+    modal.style.display = "block";
+    document.body.classList.add('overflow-hidden');
+}
+
+span.onclick = function() {
+    modal.style.display = "none";
+    document.body.classList.remove ('overflow-hidden');
+}
+
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+        document.body.classList.remove ('overflow-hidden');
+    }
+}
+</script>
+{% endblock %}
