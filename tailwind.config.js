@@ -8,3 +8,5 @@ module.exports = {
 }
 
 //npx tailwindcss -i ./webapp/static/input.css -o ./webapp/static/output.css --watch
+
+//py manage.py runserver

@@ -2,5 +2,337 @@
 {% load static %}
 {% block title %}Аккаунт{% endblock %}
 {% block content %}
-<a href="{% url 'logout' %}">Выход</a>
+<div class="p-10 flex">
+    <div class="flex flex-col w-1/2">
+        <h1 class="text-2xl text-center font-bold p-3">Личная информация</h1>
+        <div class="ml-6 mt-3">
+            <p class="text-lg">ФИО - {{ userprofile.fio }}</p>
+            <p class="text-lg">Телефон - {{ userprofile.phone }}</p>
+            <div class="mt-4">
+                <button id="openModal-order" class='p-2 text-white font-bold bg-red-600 hover:bg-gray-900 active:bg-red-600'>Записаться на приём</button>
+                <button class="px-4 py-2 text-white font-bold bg-gray-900 hover:bg-red-600 active:bg-gray-900"><a href="{% url 'logout' %}">Выход</a></button>
+            </div>
+        </div>
+        <div class="flex flex-col gap-5">
+            {% for auto in auto %}
+                <div class="flex gap-5 border-b border-black p-3 w-3/4">
+                    <div class="flex justify-center items-center">
+                        {% if auto.mark_model.mark.logo %}
+                            <img src="{{ auto.mark_model.mark.logo.url }}" class="w-36" alt="{{ auto.mark_model.mark.mark }}">
+                        {% else %}
+                            <div class="w-36 h-36 bg-gray-200 flex items-center justify-center">
+                                <span class="text-gray-500">Нет логотипа</span>
+                            </div>
+                        {% endif %}
+                    </div>
+                    <div class="flex flex-col justify-center ml-16">
+                        <p class="text-lg">Авто - {{ auto.mark_model }}, {{ auto.released_year }}</p>
+                        <p class="text-lg">Гос. номер - {{ auto.gos_num }}</p>
+                        <p class="text-lg">VIN - {{ auto.vin_num }}</p>
+                        <p class="text-lg">Серия и № двигателя - {{ auto.engine_num }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="mt-3">
+            <button id="AddCar" class="px-4 py-2 text-white bg-red-600 font-bold hover:bg-gray-900 active:bg-red-600 ml-6">Добавить автомобиль</button>
+        </div>
+    </div>
+    <div id="ModalCar" class="fixed hidden inset-0 bg-black/75 z-50 flex items-center justify-center">
+        <div class="modal-content-car bg-white w-96 fixed top-28 left-1/3 rounded-lg">
+            <div class="flex justify-end">
+                <div class="close-car bg-black h-8 w-8 flex justify-center items-center rounded-tr-lg">
+                    <svg class='h-6 fill-white font-light hover:fill-red-700' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/></svg>
+                </div>
+            </div>
+            <h1 class="text-center text-slate-400 text-2xl font-semibold mb-4">Добавить автомобиль</h1>
+            <form method="post" id="auto-form" class="flex flex-col gap-3 justify-center p-4 mb-0">
+            {% csrf_token %}
+            <input type="hidden" name="add_auto" value="1">
+            <div class="">
+                <label class="text-slate-400 text-lg">Марка</label>
+                <p class="text-slate-600 w-full">{{ form_auto.mark }}</p>
+            </div>
+            <div class="">
+                <label class="text-slate-400 text-lg">Модель</label>
+                <p class="text-slate-600 w-full">{{ form_auto.model }}</p>
+            </div>
+            <div class="">
+                <label class="text-slate-400 text-lg">Гос. номер</label>
+                <p class="text-slate-600 w-full">{{ form_auto.gos_num }}</p>
+            </div>
+            <div class="">
+                <label class="text-slate-400 text-lg">VIN номер</label>
+                <p class="text-slate-600 w-full">{{ form_auto.vin_num }}</p>
+            </div>
+            <div class="">
+                <label class="text-slate-400 text-lg">Серия и № двигателя</label>
+                <p class="text-slate-600 w-full">{{ form_auto.engine_num }}</p>
+            </div>
+            <div class="">
+                <label class="text-slate-400 text-lg">Год выпуска</label>
+                <p class="text-slate-600 w-full">{{ form_auto.released_year }}</p>
+            </div>
+            <button type="submit" class="bg-red-600 hover:bg-gray-900 p-1.5 mt-2 text-lg text-white font-bold">
+                Сохранить
+            </button>
+        </form>
+        </div>
+    </div>
+
+    <div class="flex flex-col w-1/2">
+        <h1 class="p-3 text-2xl text-center font-bold">История заявок</h1>
+        {% if order %}
+        <div class="flex flex-col gap-5">
+            {% for order in order %}
+                <div class="flex flex-col gap-3 border-b border-black p-3">
+                    <div class="flex justify-between items-center">
+                        <p class="font-semibold text-xl">{{ order.auto.mark_model }}, {{ order.auto.gos_num }}</p>
+<!--                        <p class="font-semibold text-lg">Заявка № {{ order.id }}</p>-->
+                    </div>
+                    <div class="flex flex-col gap-1">
+                        <div>
+                            <p>Услуги:</p>
+                            <ul class="ml-4">
+                                {% for service in order.service.all %}
+                                    <li type="1">{{ service.name }} - {{ service.price }} ₽</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        <p>Время записи - {{ order.datetime }}</p>
+                        {% if order.comment %}
+                            <p>Доп. информация, оставленная при заказе - {{ order.comment }}</p>
+                        {% else %}
+                            <p>Доп. информация, оставленная при заказе - не указано</p>
+                        {% endif %}
+                        {% if order.info %}
+                            <p>Комментарий, оставленный работником - {{ order.info }}</p>
+                        {% else %}
+                            <p>Комментарий, оставленный рабочим - не указано</p>
+                        {% endif %}
+                        <p>Статус - {{ order.get_status_display }}</p>
+                    </div>
+                    <a href="{% url 'download_order' order.id %}" class="text-center text-red-700 underline underline-offset-4">Заказ-наряд по {{ order.auto.mark_model }} {{ order.auto.gos_num }}</a>
+                    <p>{{ order.create_date }}</p>
+                </div>
+            {% endfor %}
+        </div>
+        {% else %}
+            <h1 class="text-center p-10 font-semibold text-3xl text-red-700">Заявок пока нет</h1>
+        {% endif %}
+    </div>
+</div>
+<div id="myModal-order" class="hidden overflow-auto fixed z-30 top-0 left-0 w-full h-full bg-black/75">
+    <div class="modal-content-order overflow-auto bg-white sm:w-full h-full md:w-1/2 lg:w-1/4">
+        <div class="flex justify-end">
+            <div class="close-order bg-black h-8 w-8 flex justify-center items-center">
+                <svg class='h-6 fill-white font-light hover:fill-red-700' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/></svg>
+            </div>
+        </div>
+        <h1 class='text-center text-slate-400 text-2xl font-semibold mt-10'>Заполните заявку</h1>
+            <form method="post" action="{% url 'add_order' %}" class="flex flex-col gap-4 p-5">
+                {% csrf_token %}
+                <input type="hidden" name="next" value="{{ request.path }}">
+                {% for field in form_order %}
+                    {% if field.name != 'service' and field.name != 'comment' and field.name != 'datetime' %}
+                        <div class="flex-flex-col">
+                            <p class="text-slate-400 text-xl">{{ field.label }}</p>
+                            <p class="text-slate-600 w-full">{{ field }}</p>
+                            {% if field.errors %}
+                                <div class="bg-red-500 my-2 flex items-center justify-center text-gray-650 rounded-lg p-1">
+                                    {{ field.errors }}
+                                </div>
+                            {% endif %}
+                        </div>
+                    {% endif %}
+                {% endfor %}
+
+                <div class="flex-flex-col">
+                    <p class="text-slate-400 text-xl">Услуги</p>
+                    <div id="services-container" class="mt-2">
+                        {% for category in service_categories %}
+                        <div class="category mb-3 border rounded-lg overflow-hidden">
+                            <div class="category-header bg-gray-100 p-3 cursor-pointer flex justify-between items-center">
+                                <span class="font-medium">{{ category.name }}</span>
+                                <span class="arrow">›</span>
+                            </div>
+                            <div class="category-content hidden p-3 bg-white">
+                                {% for service in category.services.all %}
+                                <div class="service-item flex items-center mb-2">
+                                    <input type="checkbox" name="service" id="service-{{ service.id }}" value="{{ service.id }}"
+                                           class="mr-2 h-5 w-5 text-red-600 rounded">
+                                    <label for="service-{{ service.id }}" class="text-slate-600">{{ service.name }}</label>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="flex-flex-col">
+                    <p class="text-slate-400 text-xl">{{ form_order.datetime.label }}</p>
+                    <p class="text-slate-600 w-full">{{ form_order.datetime }}</p>
+                </div>
+                {% if form_order.datetime.errors %}
+                        <div class="bg-red-500 my-2 flex items-center justify-center text-gray-650 rounded-lg p-1">
+                            {{ form_order.datetime.errors }}
+                        </div>
+                {% endif %}
+                <div class="flex-flex-col">
+                    <p class="text-slate-400 text-xl">{{ form_order.comment.label }}</p>
+                    <p class="text-slate-600 w-full">{{ form_order.comment }}</p>
+                </div>
+                <input type="submit" value="Отправить" class="bg-red-600 hover:bg-gray-900 p-3 mt-2 text-lg text-white font-bold">
+            </form>
+        <style>
+            .category-header {
+                transition: background-color 0.2s;
+            }
+            .category-header:hover {
+                background-color: #e5e7eb !important;
+            }
+            .arrow {
+                transition: transform 0.3s;
+            }
+            .category.active .arrow {
+                transform: rotate(90deg);
+            }
+            .category-content {
+                transition: max-height 0.3s ease-out;
+                max-height: 0;
+                overflow: hidden;
+            }
+            .category.active .category-content {
+                max-height: 1000px;
+                display: block;
+            }
+        </style>
+    </div>
+</div>
+<script>
+    const modal_order = document.getElementById("myModal-order");
+    const btn_order = document.getElementById("openModal-order");
+    const span_order = document.getElementsByClassName("close-order")[0];
+
+    btn_order.onclick = function() {
+        modal_order.style.display = "block";
+        document.body.classList.add('overflow-hidden');
+    }
+
+    span_order.onclick = function() {
+        modal_order.style.display = "none";
+        document.body.classList.remove ('overflow-hidden');
+    }
+
+    window.onclick = function(event) {
+        if (event.target == modal_order) {
+            modal_order.style.display = "none";
+            document.body.classList.remove ('overflow-hidden');
+        }
+    }
+    document.addEventListener('DOMContentLoaded', function() {
+            // Модальное окно
+            const modalCar = document.getElementById("ModalCar");
+            const btnCar = document.getElementById("AddCar");
+            const closeCar = document.querySelector(".close-car");
+
+            btnCar?.addEventListener('click', function() {
+                modalCar.classList.remove('hidden');
+                document.body.classList.add('overflow-hidden');
+            });
+
+            closeCar?.addEventListener('click', function() {
+                modalCar.classList.add('hidden');
+                document.body.classList.remove('overflow-hidden');
+            });
+
+            window.addEventListener('click', function(event) {
+                if (event.target === modalCar) {
+                    modalCar.classList.add('hidden');
+                    document.body.classList.remove('overflow-hidden');
+                }
+            });
+
+            // Динамическая загрузка моделей
+            const markSelect = document.getElementById('id_mark');
+            const modelSelect = document.getElementById('id_model');
+
+            if (markSelect && modelSelect) {
+                markSelect.addEventListener('change', function() {
+                    const markId = this.value;
+                    modelSelect.disabled = !markId;
+
+                    if (markId) {
+                        fetch(`/get_models_add_auto/?mark_id=${markId}`)
+                            .then(response => response.json())
+                            .then(models => {
+                                modelSelect.innerHTML = '<option value="">Выберите модель</option>';
+                                models.forEach(model => {
+                                    const option = document.createElement('option');
+                                    option.value = model.id;
+                                    option.textContent = model.model;
+                                    modelSelect.appendChild(option);
+                                });
+                                modelSelect.disabled = false;
+                            });
+                    } else {
+                        modelSelect.innerHTML = '<option value="">Сначала выберите марку</option>';
+                        modelSelect.disabled = true;
+                    }
+                });
+            }
+        });
+        document.addEventListener('DOMContentLoaded', function() {
+    // Обработка сворачивания/разворачивания категорий
+    document.querySelectorAll('.category-header').forEach(header => {
+        header.addEventListener('click', function() {
+            this.parentElement.classList.toggle('active');
+        });
+    });
+
+    // Обработка выбора марки автомобиля
+    const markSelect = document.getElementById('id_mark');
+    const modelSelect = document.getElementById('id_car_model');
+
+    if (markSelect && modelSelect) {
+        markSelect.addEventListener('change', function() {
+            const markId = this.value;
+
+            if (markId) {
+                fetch(`/get_models/?mark_id=${markId}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        modelSelect.innerHTML = '';
+
+                        // Добавляем пустую опцию
+                        const emptyOption = document.createElement('option');
+                        emptyOption.value = '';
+                        emptyOption.textContent = 'Выберите модель';
+                        modelSelect.appendChild(emptyOption);
+
+                        // Добавляем модели
+                        data.models.forEach(model => {
+                            const option = document.createElement('option');
+                            option.value = model.id;
+                            option.textContent = model.model;
+                            modelSelect.appendChild(option);
+                        });
+                    })
+                    .catch(error => console.error('Error:', error));
+            } else {
+                modelSelect.innerHTML = '';
+                const emptyOption = document.createElement('option');
+                emptyOption.value = '';
+                emptyOption.textContent = 'Сначала выберите марку';
+                modelSelect.appendChild(emptyOption);
+            }
+        });
+
+        // Инициализация при загрузке, если марка уже выбрана
+        if (markSelect.value) {
+            markSelect.dispatchEvent(new Event('change'));
+        }
+    }
+});
+</script>
 {% endblock %}

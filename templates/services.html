@@ -53,47 +53,341 @@
             </ul>
         </div>
       </div>
-      <div class='p-14 flex flex-col justify-center items-center'>
+<div class='p-14 flex flex-col justify-center items-center'>
         <div class='flex flex-col justify-center items-center md:flex md:flex-row gap-3 text-4xl'>
           <h1>КАК ЭТО</h1>
           <h1 class='font-bold'>РАБОТАЕТ</h1>
         </div>
-        <div class="swiper mySwiper h-full w-1/2 mt-10">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide flex justify-center items-center text-center text-[18px]"><img src="{% static 'img/services_img/img2.jpg' %}" alt="" class="object-cover "></div>
-                <div class="swiper-slide flex justify-center items-center text-center text-[18px]"><img src="{% static 'img/services_img/img3.jpg' %}" alt="" class="object-cover "></div>
-                <div class="swiper-slide flex justify-center items-center text-center text-[18px]"><img src="{% static 'img/services_img/img4.jpg' %}" alt="" class="object-cover "></div>
-                <div class="swiper-slide flex justify-center items-center text-center text-[18px]"><img src="{% static 'img/services_img/img1.jpg' %}" alt="" class="object-cover "></div>
+        <p class="font-semibold text-xl text center p-4">Прозрачный и понятный процесс обслуживания вашего автомобиля</p>
+        <div class="flex justify-center items-center mt-4 gap-20">
+            <div class="flex flex-col justify-center items-center gap-3">
+                <div class="flex justify-center items-center bg-red-700 w-12 h-12 rounded-full font-bold text-2xl text-white">1</div>
+                <div class="flex flex-col justify-between items-center gap-3 w-52">
+                    <h3 class="text-2xl">Заявка</h3>
+                    <p class="text-center">Вы оставляете заявку на сайте. Мы согласовываем удобное время визита.</p>
+                </div>
             </div>
-            <div class="swiper-pagination text-red-700"></div>
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
+            <div class="flex flex-col justify-center items-center gap-3">
+                <div class="flex justify-center items-center bg-red-700 w-12 h-12 rounded-full font-bold text-2xl text-white">2</div>
+                <div class="flex flex-col justify-between items-center gap-3 w-52">
+                    <h3 class="text-2xl">Диагностика</h3>
+                    <p class="text-center">Проводим комплексную диагностику и составляем список необходимых работ.</p>
+                </div>
+            </div>
+            <div class="flex flex-col justify-center items-center gap-3">
+                <div class="flex justify-center items-center bg-red-700 w-12 h-12 rounded-full font-bold text-2xl text-white">3</div>
+                <div class="flex flex-col justify-between items-center gap-3 w-52">
+                    <h3 class="text-2xl">Согласование</h3>
+                    <p class="text-center">Согласовываем с вами стоимость и сроки выполнения работ.</p>
+                </div>
+            </div>
+            <div class="flex flex-col justify-center items-center gap-3">
+                <div class="flex justify-center items-center bg-red-700 w-12 h-12 rounded-full font-bold text-2xl text-white">4</div>
+                <div class="flex flex-col justify-between items-center gap-3 w-52">
+                    <h3 class="text-2xl">Выполнение</h3>
+                    <p class="text-center">Выполняем все работы с соблюдением технологий и контролем качества.</p>
+                </div>
+            </div>
         </div>
-        <script>
-            var swiper = new Swiper(".mySwiper", {
-
-              navigation: {
-                nextEl: ".swiper-button-next",
-                prevEl: ".swiper-button-prev",
-              },
-              pagination: {
-                el: ".swiper-pagination",
-              },
-              mousewheel: true,
-              keyboard: true,
-            });
-          </script>
-
       </div>
-<div id="myModal" class="hidden fixed z-30 top-0 left-0 w-full h-full bg-black/75">
-    <div class="modal-content bg-white sm:w-full h-full md:w-1/2 lg:w-1/4">
-        <div class="flex justify-end">
-            <div class="close bg-black h-8 w-8 flex justify-center items-center">
-                <svg class='h-6 fill-white font-light hover:fill-red-700' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/></svg>
+        <h1 class="font-bold text-4xl text-red-700 text-center p-7">Прайс-лист автосервиса</h1>
+    <div class="px-40">
+    <table class="w-full px-20 text-lg">
+        <thead class="text-left bg-red-600 text-white font-bold">
+            <tr>
+                <th class="p-3">Услуга</th>
+                <th class="p-3">Описание</th>
+                <th class="p-3">Цена</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="bg-zinc-700 text-white font-bold">
+                <td colspan="3" class="p-3">Техническое обслуживание (ТО)</td>
+            </tr>
+            <tr class="bg-neutral-100 hover:bg-neutral-300 border-b">
+                <td class="p-3">Замена масла и фильтра</td>
+                <td>Замена моторного масла и масляного фильтра</td>
+                <td class="text-red-600 font-bold">от 1 500 ₽</td>
+            </tr>
+            <tr class="hover:bg-neutral-300 border-b">
+                <td class="p-3">Полное ТО</td>
+                <td>Комплексное техническое обслуживание (30 пунктов)</td>
+                <td class="text-red-600 font-bold">от 5 000 ₽</td>
+            </tr>
+            <tr class="bg-neutral-100 hover:bg-neutral-300 border-b">
+                <td class="p-3">Замена воздушного фильтра</td>
+                <td>Демонтаж и установка нового воздушного фильтра</td>
+                <td class="text-red-600 font-bold">от 800 ₽</td>
+            </tr>
+            <tr class="hover:bg-neutral-300 border-b">
+                <td class="p-3">Замена салонного фильтра</td>
+                <td>Замена фильтра системы вентиляции салона</td>
+                <td class="text-red-600 font-bold">от 1 000 ₽</td>
+            </tr>
+            <tr class="bg-zinc-700 text-white font-bold">
+                <td colspan="3" class="p-3">Шиномонтаж</td>
+            </tr>
+            <tr class="bg-neutral-100 hover:bg-neutral-300 border-b">
+                <td class="p-3">Замена резины (R13-R15)</td>
+                <td>Снятие/установка колеса, балансировка</td>
+                <td class="text-red-600 font-bold">от 500 ₽/шт</td>
+            </tr>
+            <tr class="hover:bg-neutral-300 border-b">
+                <td class="p-3">Замена резины (R16-R18)</td>
+                <td>Снятие/установка колеса, балансировка</td>
+                <td class="text-red-600 font-bold">от 700 ₽/шт</td>
+            </tr>
+            <tr class="bg-neutral-100 hover:bg-neutral-300 border-b">
+                <td class="p-3">Ремонт прокола</td>
+                <td>Ремонт бескамерного колеса (1 прокол)</td>
+                <td class="text-red-600 font-bold">от 400 ₽</td>
+            </tr>
+            <tr class="hover:bg-neutral-300 border-b">
+                <td class="p-3">Хранение шин</td>
+                <td>Сезонное хранение комплекта шин</td>
+                <td class="text-red-600 font-bold">3 000 ₽/сезон</td>
+            </tr>
+            <tr class="bg-zinc-700 text-white font-bold">
+                <td colspan="3" class="p-3">Ремонтные работы</td>
+            </tr>
+            <tr class="bg-neutral-100 hover:bg-neutral-300 border-b">
+                <td class="p-3">Замена тормозных колодок</td>
+                <td>Замена колодок (1 ось)</td>
+                <td class="text-red-600 font-bold">от 1 500 ₽</td>
+            </tr>
+            <tr class="hover:bg-neutral-300 border-b">
+                <td class="p-3">Замена тормозных дисков</td>
+                <td>Замена дисков (1 ось)</td>
+                <td class="text-red-600 font-bold">от 3 500 ₽</td>
+            </tr>
+            <tr class="bg-neutral-100 hover:bg-neutral-300 border-b">
+                <td class="p-3">Замена амортизаторов</td>
+                <td>Замена передних/задних амортизаторов (1 шт)</td>
+                <td class="text-red-600 font-bold">от 2 000 ₽</td>
+            </tr>
+            <tr class="hover:bg-neutral-300 border-b">
+                <td class="p-3">Ремонт подвески</td>
+                <td>Диагностика и ремонт элементов подвески</td>
+                <td class="text-red-600 font-bold">от 2 500 ₽</td>
+            </tr>
+            <tr class="bg-zinc-700 text-white font-bold">
+                <td colspan="3" class="p-3">Диагностика</td>
+            </tr>
+            <tr class="bg-neutral-100 hover:bg-neutral-300 border-b">
+                <td class="p-3">Компьютерная диагностика</td>
+                <td>Сканирование ошибок электронных систем</td>
+                <td class="text-red-600 font-bold">от 1 500 ₽</td>
+            </tr>
+            <tr class="hover:bg-neutral-300 border-b">
+                <td class="p-3">Диагностика подвески</td>
+                <td>Проверка состояния элементов подвески</td>
+                <td class="text-red-600 font-bold">от 1 000 ₽</td>
+            </tr>
+            <tr class="bg-neutral-100 hover:bg-neutral-300 border-b">
+                <td class="p-3">Диагностика двигателя</td>
+                <td>Комплексная проверка состояния двигателя</td>
+                <td class="text-red-600 font-bold">от 2 500 ₽</td>
+            </tr>
+            <tr class="hover:bg-neutral-300 border-b">
+                <td class="p-3">Проверка электрооборудования</td>
+                <td>Диагностика электрических систем автомобиля</td>
+                <td class="text-red-600 font-bold">от 2 000 ₽</td>
+            </tr>
+            <tr class="bg-zinc-700 text-white font-bold">
+                <td colspan="3" class="p-3">Мойка и уход</td>
+            </tr>
+            <tr class="bg-neutral-100 hover:bg-neutral-300 border-b">
+                <td class="p-3">Мойка кузова</td>
+                <td>Ручная мойка кузова с шампунем</td>
+                <td class="text-red-600 font-bold">от 500 ₽</td>
+            </tr>
+            <tr class="hover:bg-neutral-300 border-b">
+                <td class="p-3">Комплексная мойка</td>
+                <td>Мойка кузова, салона, чистка пластика</td>
+                <td class="text-red-600 font-bold">от 1 500 ₽</td>
+            </tr>
+            <tr class="bg-neutral-100 hover:bg-neutral-300 border-b">
+                <td class="p-3">Химчистка салона</td>
+                <td>Глубокая чистка салона автомобиля</td>
+                <td class="text-red-600 font-bold">от 3 500 ₽</td>
+            </tr>
+            <tr class="hover:bg-neutral-300 border-b">
+                <td class="p-3">Полировка кузова</td>
+                <td>Восстановительная полировка (1 этап)</td>
+                <td class="text-red-600 font-bold">от 5 000 ₽</td>
+            </tr>
+            <tr class="bg-zinc-700 text-white font-bold">
+                <td colspan="3" class="p-3">Тюнинг</td>
+            </tr>
+            <tr class="bg-neutral-100 hover:bg-neutral-300 border-b">
+                <td class="p-3">Установка спойлера</td>
+                <td>Монтаж заднего спойлера</td>
+                <td class="text-red-600 font-bold">от 3 000 ₽</td>
+            </tr>
+            <tr class="hover:bg-neutral-300 border-b">
+                <td class="p-3">Тонировка стекол</td>
+                <td>Тонировка боковых стекол (пленка)</td>
+                <td class="text-red-600 font-bold">от 4 000 ₽</td>
+            </tr>
+            <tr class="bg-neutral-100 hover:bg-neutral-300 border-b">
+                <td class="p-3">Установка защиты картера</td>
+                <td>Монтаж металлической защиты двигателя</td>
+                <td class="text-red-600 font-bold">от 2 500 ₽</td>
+            </tr>
+            <tr class="hover:bg-neutral-300 border-b">
+                <td class="p-3">Чип-тюнинг</td>
+                <td>Программное увеличение мощности двигателя</td>
+                <td class="text-red-600 font-bold">от 7 000 ₽</td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+    <p class="text-center p-6 text-lg text-neutral-600">* Цены указаны для ознакомления. Точная стоимость зависит от марки автомобиля и сложности работ.</p>
+
+    <div id="myModal" class="hidden overflow-auto fixed z-30 top-0 left-0 w-full h-full bg-black/75">
+        <div class="modal-content overflow-auto bg-white sm:w-full h-full md:w-1/2 lg:w-1/4">
+            <div class="flex justify-end">
+                <div class="close bg-black h-8 w-8 flex justify-center items-center">
+                    <svg class='h-6 fill-white font-light hover:fill-red-700' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/></svg>
+                </div>
             </div>
+            <h1 class='text-center text-slate-400 text-2xl font-semibold mt-5'>Заполните заявку</h1>
+            {% if not request.user.is_anonymous %}
+                <form method="post" action="{% url 'add_order' %}" class="flex flex-col gap-4 p-5">
+                    {% csrf_token %}
+                    <input type="hidden" name="next" value="{{ request.path }}">
+                    {% for field in form_order %}
+                        {% if field.name != 'service' and field.name != 'comment' and field.name != 'datetime' %}
+                            <div class="flex-flex-col">
+                                <p class="text-slate-400 text-xl">{{ field.label }}</p>
+                                <p class="text-slate-600 w-full">{{ field }}</p>
+                                {% if field.errors %}
+                                <div class="bg-red-500 my-2 flex items-center justify-center text-gray-650 rounded-lg p-1">
+                                    {{ field.errors }}
+                                </div>
+                            {% endif %}
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+
+                    <div class="flex-flex-col">
+                        <p class="text-slate-400 text-xl">Услуги</p>
+                        <div id="services-container" class="mt-2">
+                            {% for category in service_categories %}
+                            <div class="category mb-3 border rounded-lg overflow-hidden">
+                                <div class="category-header bg-gray-100 p-3 cursor-pointer flex justify-between items-center">
+                                    <span class="font-medium">{{ category.name }}</span>
+                                    <span class="arrow">›</span>
+                                </div>
+                                <div class="category-content hidden p-3 bg-white">
+                                    {% for service in category.services.all %}
+                                    <div class="service-item flex items-center mb-2">
+                                        <input type="checkbox" name="service" id="service-{{ service.id }}" value="{{ service.id }}"
+                                               class="mr-2 h-5 w-5 text-red-600 rounded">
+                                        <label for="service-{{ service.id }}" class="text-slate-600">{{ service.name }}</label>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="flex-flex-col">
+                        <p class="text-slate-400 text-xl">{{ form_order.datetime.label }}</p>
+                        <p class="text-slate-600 w-full">{{ form_order.datetime }}</p>
+                    </div>
+                    {% if form_order.datetime.errors %}
+                            <div class="bg-red-500 my-2 flex items-center justify-center text-gray-650 rounded-lg p-1">
+                                {{ form_order.datetime.errors }}
+                            </div>
+                    {% endif %}
+                    <div class="flex-flex-col">
+                        <p class="text-slate-400 text-xl">{{ form_order.comment.label }}</p>
+                        <p class="text-slate-600 w-full">{{ form_order.comment }}</p>
+                    </div>
+                    <input type="submit" value="Отправить" class="bg-red-600 hover:bg-gray-900 p-3 mt-2 text-lg text-white font-bold">
+                </form>
+            {% else %}
+                <form method="post" action="{% url 'add_order' %}" class="flex flex-col p-5">
+                    {% csrf_token %}
+                    <input type="hidden" name="next" value="{{ request.path }}">
+                    {% for field in form_order_anon %}
+                        {% if field.name != 'service' and field.name != 'comment' and field.name != 'datetime' %}
+                            <div class="flex-flex-col">
+                                <p class="text-slate-400 text-xl">{{ field.label }}</p>
+                                <p class="text-slate-600 w-full">{{ field }}</p>
+                                {% if field.errors %}
+                                <div class="bg-red-500 my-2 flex items-center justify-center text-gray-650 rounded-lg p-1">
+                                    {{ field.errors }}
+                                </div>
+                            {% endif %}
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+
+                    <div class="flex-flex-col">
+                        <p class="text-slate-400 text-xl">Услуги</p>
+                        <div id="services-container" class="mt-2">
+                            {% for category in service_categories %}
+                            <div class="category mb-3 border rounded-lg overflow-hidden">
+                                <div class="category-header bg-gray-100 p-3 cursor-pointer flex justify-between items-center">
+                                    <span class="font-medium">{{ category.name }}</span>
+                                    <span class="arrow">›</span>
+                                </div>
+                                <div class="category-content hidden p-3 bg-white">
+                                    {% for service in category.services.all %}
+                                    <div class="service-item flex items-center mb-2">
+                                        <input type="checkbox" name="service" id="service-{{ service.id }}" value="{{ service.id }}"
+                                               class="mr-2 h-5 w-5 text-red-600 rounded">
+                                        <label for="service-{{ service.id }}" class="text-slate-600">{{ service.name }}</label>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="flex-flex-col">
+                        <p class="text-slate-400 text-xl">{{ form_order_anon.datetime.label }}</p>
+                        <p class="text-slate-600 w-full">{{ form_order_anon.datetime }}</p>
+                    </div>
+                    {% if form_order_anon.datetime.errors %}
+                            <div class="bg-red-500 my-2 flex items-center justify-center text-gray-650 rounded-lg p-1">
+                                {{ form_order_anon.datetime.errors }}
+                            </div>
+                    {% endif %}
+                    <div class="flex-flex-col">
+                        <p class="text-slate-400 text-xl">{{ form_order_anon.comment.label }}</p>
+                        <p class="text-slate-600 w-full">{{ form_order_anon.comment }}</p>
+                    </div>
+                    <input type="submit" value="Отправить" class="bg-red-600 hover:bg-gray-900 p-3 mt-2 text-lg text-white font-bold">
+                </form>
+            {% endif %}
+    <style>
+        .category-header {
+            transition: background-color 0.2s;
+        }
+        .category-header:hover {
+            background-color: #e5e7eb !important;
+        }
+        .arrow {
+            transition: transform 0.3s;
+        }
+        .category.active .arrow {
+            transform: rotate(90deg);
+        }
+        .category-content {
+            transition: max-height 0.3s ease-out;
+            max-height: 0;
+            overflow: hidden;
+        }
+        .category.active .category-content {
+            max-height: 1000px;
+            display: block;
+        }
+    </style>
         </div>
     </div>
-</div>
 <script>
 const modal = document.getElementById("myModal");
 const btn = document.getElementById("openModal");
@@ -115,5 +409,102 @@ window.onclick = function(event) {
         document.body.classList.remove ('overflow-hidden');
     }
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+    const markSelect = document.getElementById('id_mark');
+    const modelSelect = document.getElementById('id_car_model');
+
+    if (markSelect && modelSelect) {
+        markSelect.addEventListener('change', function() {
+            const markId = this.value;
+
+            if (markId) {
+                fetch(`/get_models/?mark_id=${markId}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        modelSelect.innerHTML = '';
+
+                        // Добавляем пустую опцию
+                        const emptyOption = document.createElement('option');
+                        emptyOption.value = '';
+                        emptyOption.textContent = 'Выберите модель';
+                        modelSelect.appendChild(emptyOption);
+
+                        // Добавляем модели
+                        data.models.forEach(model => {
+                            const option = document.createElement('option');
+                            option.value = model.id;
+                            option.textContent = model.model;  // Используем model.model вместо model.name
+                            modelSelect.appendChild(option);
+                        });
+                    })
+                    .catch(error => console.error('Error:', error));
+            } else {
+                modelSelect.innerHTML = '';
+                const emptyOption = document.createElement('option');
+                emptyOption.value = '';
+                emptyOption.textContent = 'Сначала выберите марку';
+                modelSelect.appendChild(emptyOption);
+            }
+        });
+
+        // Инициализация при загрузке, если марка уже выбрана
+        if (markSelect.value) {
+            markSelect.dispatchEvent(new Event('change'));
+        }
+    }
+});
+document.addEventListener('DOMContentLoaded', function() {
+        // Обработка сворачивания/разворачивания категорий
+        document.querySelectorAll('.category-header').forEach(header => {
+            header.addEventListener('click', function() {
+                this.parentElement.classList.toggle('active');
+            });
+        });
+
+        // Обработка выбора марки автомобиля
+        const markSelect = document.getElementById('id_mark');
+        const modelSelect = document.getElementById('id_car_model');
+
+        if (markSelect && modelSelect) {
+            markSelect.addEventListener('change', function() {
+                const markId = this.value;
+
+                if (markId) {
+                    fetch(`/get_models/?mark_id=${markId}`)
+                        .then(response => response.json())
+                        .then(data => {
+                            modelSelect.innerHTML = '';
+
+                            // Добавляем пустую опцию
+                            const emptyOption = document.createElement('option');
+                            emptyOption.value = '';
+                            emptyOption.textContent = 'Выберите модель';
+                            modelSelect.appendChild(emptyOption);
+
+                            // Добавляем модели
+                            data.models.forEach(model => {
+                                const option = document.createElement('option');
+                                option.value = model.id;
+                                option.textContent = model.model;
+                                modelSelect.appendChild(option);
+                            });
+                        })
+                        .catch(error => console.error('Error:', error));
+                } else {
+                    modelSelect.innerHTML = '';
+                    const emptyOption = document.createElement('option');
+                    emptyOption.value = '';
+                    emptyOption.textContent = 'Сначала выберите марку';
+                    modelSelect.appendChild(emptyOption);
+                }
+            });
+
+            // Инициализация при загрузке, если марка уже выбрана
+            if (markSelect.value) {
+                markSelect.dispatchEvent(new Event('change'));
+            }
+        }
+    });
 </script>
 {% endblock %}

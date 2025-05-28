@@ -12,85 +12,352 @@
           <button id="openModal" class='md:w-72 text-xl p-2.5 mt-10 bg-red-600 text-slate-100 font-bold hover:bg-gray-900 active:bg-red-700'>ЗАПИШИТЕСЬ НА ПРИЁМ</button>
         </div>
       </div>
-      <div class='grid grid-cols-1 md:grid-cols-2 justify-items-center lg:flex lg:flex-row justify-center gap-10 m-10'>
-          <a href="{% url 'services' %}" class='bg-gray-900 hover:bg-red-700 w-full h-96 md:w-80 h-80 lg:h-96 w-96 flex flex-col justify-between p-10'>
-              <svg class="h-12 w-12 fill-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path d="M384 96l0 224L64 320 64 96l320 0zM64 32C28.7 32 0 60.7 0 96L0 320c0 35.3 28.7 64 64 64l117.3 0-10.7 32L96 416c-17.7 0-32 14.3-32 32s14.3 32 32 32l256 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-74.7 0-10.7-32L384 384c35.3 0 64-28.7 64-64l0-224c0-35.3-28.7-64-64-64L64 32zm464 0c-26.5 0-48 21.5-48 48l0 352c0 26.5 21.5 48 48 48l64 0c26.5 0 48-21.5 48-48l0-352c0-26.5-21.5-48-48-48l-64 0zm16 64l32 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0c-8.8 0-16-7.2-16-16s7.2-16 16-16zm-16 80c0-8.8 7.2-16 16-16l32 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0c-8.8 0-16-7.2-16-16zm32 160a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/></svg>
-              <div >
-                <h1 class='text-slate-100 font-bold'>КОМПЬЮТЕРНАЯ ДИАГНОСТИКА</h1>
-                <p class='text-slate-100 '>ПОМОГАЕТ НАЙТИ ПРОБЛЕМЫ</p>
-              </div>
-          </a>
-          <a href="{% url 'services' %}" class='bg-gray-900 hover:bg-red-700 w-full h-96 md:w-80 h-80 lg:h-96 w-96 flex flex-col justify-between p-10'>
-              <svg class="h-12 w-12 fill-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M352 320c88.4 0 160-71.6 160-160c0-15.3-2.2-30.1-6.2-44.2c-3.1-10.8-16.4-13.2-24.3-5.3l-76.8 76.8c-3 3-7.1 4.7-11.3 4.7H336c-8.8 0-16-7.2-16-16V118.6c0-4.2 1.7-8.3 4.7-11.3l76.8-76.8c7.9-7.9 5.4-21.2-5.3-24.3C382.1 2.2 367.3 0 352 0C263.6 0 192 71.6 192 160c0 19.1 3.4 37.5 9.5 54.5L19.9 396.1C7.2 408.8 0 426.1 0 444.1C0 481.6 30.4 512 67.9 512c18 0 35.3-7.2 48-19.9L297.5 310.5c17 6.2 35.4 9.5 54.5 9.5zM80 408a24 24 0 1 1 0 48 24 24 0 1 1 0-48z"/></svg>
-              <div >
-                <h1 class='text-slate-100 font-bold'>ПРОФИЛАКТИЧЕСКОЕ ОБСЛУЖИВАНИЕ</h1>
-                <p class='text-slate-100 '>ПРОХОДИТЕ ЛУЧШЕЕ ТЕХНИЧЕСКОЕ ОБСЛУЖИВАНИЕ</p>
-              </div>
-          </a>
-          <a href="{% url 'services' %}" class='bg-gray-900 hover:bg-red-700 w-full h-96 md:w-80 h-80 lg:h-96 w-96 flex flex-col justify-between p-10'>
-              <svg class="h-12 w-12 fill-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M495.9 166.6c3.2 8.7 .5 18.4-6.4 24.6l-43.3 39.4c1.1 8.3 1.7 16.8 1.7 25.4s-.6 17.1-1.7 25.4l43.3 39.4c6.9 6.2 9.6 15.9 6.4 24.6c-4.4 11.9-9.7 23.3-15.8 34.3l-4.7 8.1c-6.6 11-14 21.4-22.1 31.2c-5.9 7.2-15.7 9.6-24.5 6.8l-55.7-17.7c-13.4 10.3-28.2 18.9-44 25.4l-12.5 57.1c-2 9.1-9 16.3-18.2 17.8c-13.8 2.3-28 3.5-42.5 3.5s-28.7-1.2-42.5-3.5c-9.2-1.5-16.2-8.7-18.2-17.8l-12.5-57.1c-15.8-6.5-30.6-15.1-44-25.4L83.1 425.9c-8.8 2.8-18.6 .3-24.5-6.8c-8.1-9.8-15.5-20.2-22.1-31.2l-4.7-8.1c-6.1-11-11.4-22.4-15.8-34.3c-3.2-8.7-.5-18.4 6.4-24.6l43.3-39.4C64.6 273.1 64 264.6 64 256s.6-17.1 1.7-25.4L22.4 191.2c-6.9-6.2-9.6-15.9-6.4-24.6c4.4-11.9 9.7-23.3 15.8-34.3l4.7-8.1c6.6-11 14-21.4 22.1-31.2c5.9-7.2 15.7-9.6 24.5-6.8l55.7 17.7c13.4-10.3 28.2-18.9 44-25.4l12.5-57.1c2-9.1 9-16.3 18.2-17.8C227.3 1.2 241.5 0 256 0s28.7 1.2 42.5 3.5c9.2 1.5 16.2 8.7 18.2 17.8l12.5 57.1c15.8 6.5 30.6 15.1 44 25.4l55.7-17.7c8.8-2.8 18.6-.3 24.5 6.8c8.1 9.8 15.5 20.2 22.1 31.2l4.7 8.1c6.1 11 11.4 22.4 15.8 34.3zM256 336a80 80 0 1 0 0-160 80 80 0 1 0 0 160z"/></svg>
-              <div >
-                <h1 class='text-slate-100 font-bold'>ПОЛНЫЙ РЕМОНТ</h1>
-                <p class='text-slate-100 '>ПРОФЕССИОНАЛЬНЫЙ РЕМОНТ ЛЮБЫХ УЗЛОВ АВТОМОБИЛЯ</p>
-              </div>
-          </a>
-          <a href="{% url 'services' %}" class='bg-gray-900 hover:bg-red-700 w-full h-96 md:w-80 h-80 lg:h-96 w-96 flex flex-col justify-between p-10'>
-              <svg class="h-12 w-12 fill-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M349.4 44.6c5.9-13.7 1.5-29.7-10.6-38.5s-28.6-8-39.9 1.8l-256 224c-10 8.8-13.6 22.9-8.9 35.3S50.7 288 64 288H175.5L98.6 467.4c-5.9 13.7-1.5 29.7 10.6 38.5s28.6 8 39.9-1.8l256-224c10-8.8 13.6-22.9 8.9-35.3s-16.6-20.7-30-20.7H272.5L349.4 44.6z"/></svg>
-              <div >
-                <h1 class='text-slate-100 font-bold'>ТЮНИНГ</h1>
-                <p class='text-slate-100 '>РАЗНООБРАЗНЫЙ И КАЧЕСТВЕННЫЙ ТЮННИНГ</p>
-              </div>
-          </a>
+      <div class='grid grid-cols-2 md:grid-cols-3 justify-items-center lg:grid-cols-4 gap-10 m-6 md:m-10'>
+          <div class='bg-gray-900 w-36 h-36 md:w-52 md:h-48 flex flex-col justify-between p-4 md:p-8'>
+              <svg class="h-10 w-10 md:h-12 md:w-12 fill-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path d="M384 96l0 224L64 320 64 96l320 0zM64 32C28.7 32 0 60.7 0 96L0 320c0 35.3 28.7 64 64 64l117.3 0-10.7 32L96 416c-17.7 0-32 14.3-32 32s14.3 32 32 32l256 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-74.7 0-10.7-32L384 384c35.3 0 64-28.7 64-64l0-224c0-35.3-28.7-64-64-64L64 32zm464 0c-26.5 0-48 21.5-48 48l0 352c0 26.5 21.5 48 48 48l64 0c26.5 0 48-21.5 48-48l0-352c0-26.5-21.5-48-48-48l-64 0zm16 64l32 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0c-8.8 0-16-7.2-16-16s7.2-16 16-16zm-16 80c0-8.8 7.2-16 16-16l32 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0c-8.8 0-16-7.2-16-16zm32 160a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/></svg>
+              <h1 class='text-sm text-slate-100 font-bold'>КОМПЬЮТЕРНАЯ ДИАГНОСТИКА</h1>
+          </div>
+          <div class='bg-gray-900 w-36 h-36 md:w-52 md:h-48 flex flex-col justify-between p-4 md:p-8'>
+              <svg class="h-10 w-10 md:h-12 md:w-12 fill-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M352 320c88.4 0 160-71.6 160-160c0-15.3-2.2-30.1-6.2-44.2c-3.1-10.8-16.4-13.2-24.3-5.3l-76.8 76.8c-3 3-7.1 4.7-11.3 4.7H336c-8.8 0-16-7.2-16-16V118.6c0-4.2 1.7-8.3 4.7-11.3l76.8-76.8c7.9-7.9 5.4-21.2-5.3-24.3C382.1 2.2 367.3 0 352 0C263.6 0 192 71.6 192 160c0 19.1 3.4 37.5 9.5 54.5L19.9 396.1C7.2 408.8 0 426.1 0 444.1C0 481.6 30.4 512 67.9 512c18 0 35.3-7.2 48-19.9L297.5 310.5c17 6.2 35.4 9.5 54.5 9.5zM80 408a24 24 0 1 1 0 48 24 24 0 1 1 0-48z"/></svg>
+              <h1 class='hidden md:block text-sm text-slate-100 font-bold'>ПРОФИЛАКТИЧЕСКОЕ ОБСЛУЖИВАНИЕ</h1>
+              <h1 class="md:hidden text-sm text-slate-100 font-bold">ПРОФИЛАКТИ-<br>ЧЕСКОЕ ОБСЛУЖИВАНИЕ</h1>
+          </div>
+          <div class='bg-gray-900 w-36 h-36 md:w-52 md:h-48 flex flex-col justify-between p-4 md:p-8'>
+              <svg class="h-10 w-10 md:h-12 md:w-12 fill-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M495.9 166.6c3.2 8.7 .5 18.4-6.4 24.6l-43.3 39.4c1.1 8.3 1.7 16.8 1.7 25.4s-.6 17.1-1.7 25.4l43.3 39.4c6.9 6.2 9.6 15.9 6.4 24.6c-4.4 11.9-9.7 23.3-15.8 34.3l-4.7 8.1c-6.6 11-14 21.4-22.1 31.2c-5.9 7.2-15.7 9.6-24.5 6.8l-55.7-17.7c-13.4 10.3-28.2 18.9-44 25.4l-12.5 57.1c-2 9.1-9 16.3-18.2 17.8c-13.8 2.3-28 3.5-42.5 3.5s-28.7-1.2-42.5-3.5c-9.2-1.5-16.2-8.7-18.2-17.8l-12.5-57.1c-15.8-6.5-30.6-15.1-44-25.4L83.1 425.9c-8.8 2.8-18.6 .3-24.5-6.8c-8.1-9.8-15.5-20.2-22.1-31.2l-4.7-8.1c-6.1-11-11.4-22.4-15.8-34.3c-3.2-8.7-.5-18.4 6.4-24.6l43.3-39.4C64.6 273.1 64 264.6 64 256s.6-17.1 1.7-25.4L22.4 191.2c-6.9-6.2-9.6-15.9-6.4-24.6c4.4-11.9 9.7-23.3 15.8-34.3l4.7-8.1c6.6-11 14-21.4 22.1-31.2c5.9-7.2 15.7-9.6 24.5-6.8l55.7 17.7c13.4-10.3 28.2-18.9 44-25.4l12.5-57.1c2-9.1 9-16.3 18.2-17.8C227.3 1.2 241.5 0 256 0s28.7 1.2 42.5 3.5c9.2 1.5 16.2 8.7 18.2 17.8l12.5 57.1c15.8 6.5 30.6 15.1 44 25.4l55.7-17.7c8.8-2.8 18.6-.3 24.5 6.8c8.1 9.8 15.5 20.2 22.1 31.2l4.7 8.1c6.1 11 11.4 22.4 15.8 34.3zM256 336a80 80 0 1 0 0-160 80 80 0 1 0 0 160z"/></svg>
+              <h1 class='text-sm text-slate-100 font-bold'>КОМПЛЕКСНЫЙ РЕМОНТ</h1>
+          </div>
+          <div class='bg-gray-900 w-36 h-36 md:w-52 md:h-48 flex flex-col justify-between p-4 md:p-8'>
+              <svg class="h-10 w-10 md:h-12 md:w-12 fill-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M349.4 44.6c5.9-13.7 1.5-29.7-10.6-38.5s-28.6-8-39.9 1.8l-256 224c-10 8.8-13.6 22.9-8.9 35.3S50.7 288 64 288H175.5L98.6 467.4c-5.9 13.7-1.5 29.7 10.6 38.5s28.6 8 39.9-1.8l256-224c10-8.8 13.6-22.9 8.9-35.3s-16.6-20.7-30-20.7H272.5L349.4 44.6z"/></svg>
+              <h1 class='text-sm text-slate-100 font-bold'>ТЮНИНГ</h1>
+          </div>
+          <div class='bg-gray-900 w-36 h-36 md:w-52 md:h-48 flex flex-col justify-between p-4 md:p-8'>
+              <svg class="h-10 w-10 md:h-12 md:w-12 fill-white" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#ffffff" d="M3 6.5v-2c0-.465 0-.697.038-.89A2 2 0 0 1 4.61 2.038C4.803 2 5.035 2 5.5 2s.697 0 .89.038A2 2 0 0 1 7.962 3.61C8 3.803 8 4.035 8 4.5v.25h8V4.5c0-.465 0-.697.038-.89a2 2 0 0 1 1.572-1.572C17.803 2 18.035 2 18.5 2s.697 0 .89.038a2 2 0 0 1 1.572 1.572c.038.193.038.425.038.89v2c0 .465 0 .697-.038.89a2 2 0 0 1-1.572 1.572C19.197 9 18.965 9 18.5 9s-.697 0-.89-.038a2 2 0 0 1-1.572-1.572C16 7.197 16 6.965 16 6.5v-.25h-3.25v11.5H16v-.25c0-.465 0-.697.038-.89a2 2 0 0 1 1.572-1.572c.193-.038.425-.038.89-.038s.697 0 .89.038a2 2 0 0 1 1.572 1.572c.038.193.038.425.038.89v2c0 .465 0 .697-.038.89a2 2 0 0 1-1.572 1.572c-.193.038-.425.038-.89.038s-.697 0-.89-.038a2 2 0 0 1-1.572-1.572C16 20.197 16 19.965 16 19.5v-.25H8v.25c0 .465 0 .697-.038.89a2 2 0 0 1-1.572 1.572C6.197 22 5.965 22 5.5 22s-.697 0-.89-.038a2 2 0 0 1-1.572-1.572C3 20.197 3 19.965 3 19.5v-2c0-.465 0-.697.038-.89a2 2 0 0 1 1.572-1.572C4.803 15 5.035 15 5.5 15s.697 0 .89.038a2 2 0 0 1 1.572 1.572c.038.193.038.425.038.89v.25h3.25V6.25H8v.25c0 .465 0 .697-.038.89A2 2 0 0 1 6.39 8.962C6.197 9 5.965 9 5.5 9s-.697 0-.89-.038A2 2 0 0 1 3.038 7.39C3 7.197 3 6.965 3 6.5"/></svg>
+              <h1 class='text-sm text-slate-100 font-bold'>РЕМОНТ ПОДВЕСКИ</h1>
+          </div>
+          <div class='bg-gray-900 w-36 h-36 md:w-52 md:h-48 flex flex-col justify-between p-4 md:p-8'>
+              <svg class="h-10 w-10 md:h-12 md:w-12 font-bold" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="none" stroke="#ffffff" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 16v-4m0-3V8"/><circle cx="12" cy="12" r="8"/><path stroke-linecap="round" stroke-linejoin="round" d="M3.953 4.5A10.96 10.96 0 0 0 1 12c0 2.899 1.121 5.535 2.953 7.5m16.094-15A10.96 10.96 0 0 1 23 12c0 2.899-1.121 5.535-2.953 7.5"/></g></svg>
+              <h1 class='text-sm text-slate-100 font-bold'>РЕМОНТ ТОРМОЗНОЙ СИСТЕМЫ</h1>
+          </div>
+          <div class='bg-gray-900 w-36 h-36 md:w-52 md:h-48 flex flex-col justify-between p-4 md:p-8'>
+              <svg class="h-10 w-10 md:h-12 md:w-12 font-bold" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#ffffff" d="M12 2a2.75 2.75 0 0 0-.75 5.396v3.854a.75.75 0 0 0 1.5 0V7.396A2.751 2.751 0 0 0 12 2M5.5 4A2.5 2.5 0 0 0 3 6.5v12a2.5 2.5 0 0 0 5 0V15h1.5v3.5a2.5 2.5 0 0 0 5 0V15H19a2 2 0 0 0 2-2V6.5a2.5 2.5 0 0 0-5 0V10h-2.25v1.5h3.75v-5a1 1 0 1 1 2 0V13a.5.5 0 0 1-.5.5h-6v5a1 1 0 1 1-2 0v-5H6.5v5a1 1 0 1 1-2 0v-12a1 1 0 0 1 2 0v5h3.75V10H8V6.5A2.5 2.5 0 0 0 5.5 4"/></svg>
+              <h1 class='text-sm text-slate-100 font-bold'>РЕМОНТ ТРАНСМИССИИ</h1>
+          </div>
+          <div class='bg-gray-900 w-36 h-36 md:w-52 md:h-48 flex flex-col justify-between p-4 md:p-8'>
+              <svg class="h-10 w-10 md:h-12 md:w-12 font-bold" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="white" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 19.4V4.6a.6.6 0 0 1 .6-.6h8.8a.6.6 0 0 1 .6.6v14.8a.6.6 0 0 1-.6.6H7.6a.6.6 0 0 1-.6-.6m7 .6v2.5M10 20v2.5M14 4V1.5M10 4V1.5M7 12H4.5m15 0H17M7 6.5H4.5m15 0H17m-10 11H4.5m15 0H17"/></svg>
+              <h1 class='text-sm text-slate-100 font-bold'>РЕМОНТ ЭЛЕТРОНИКИ</h1>
+          </div>
+          <div class='bg-gray-900 w-36 h-36 md:w-52 md:h-48 flex flex-col justify-between p-4 md:p-8'>
+              <svg class="h-10 w-10 md:h-12 md:w-12 fill-white" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#ffffff" d="M7 4v2h3v2H7l-2 2v3H3v-3H1v8h2v-3h2v3h3l2 2h8v-4h2v3h3V9h-3v3h-2V8h-6V6h3V4z"/></svg>
+              <h1 class='text-sm text-slate-100 font-bold'>РЕМОНТ ДВИГАТЕЛЯ</h1>
+          </div>
+          <div class='bg-gray-900 w-36 h-36 md:w-52 md:h-48 flex flex-col justify-between p-4 md:p-8'>
+              <svg class="h-10 w-10 md:h-12 md:w-12 fill-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M32 64C32 28.7 60.7 0 96 0L256 0c35.3 0 64 28.7 64 64l0 192 8 0c48.6 0 88 39.4 88 88l0 32c0 13.3 10.7 24 24 24s24-10.7 24-24l0-154c-27.6-7.1-48-32.2-48-62l0-64L384 64c-8.8-8.8-8.8-23.2 0-32s23.2-8.8 32 0l77.3 77.3c12 12 18.7 28.3 18.7 45.3l0 13.5 0 24 0 32 0 152c0 39.8-32.2 72-72 72s-72-32.2-72-72l0-32c0-22.1-17.9-40-40-40l-8 0 0 144c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 512c-17.7 0-32-14.3-32-32s14.3-32 32-32L32 64zM96 80l0 96c0 8.8 7.2 16 16 16l128 0c8.8 0 16-7.2 16-16l0-96c0-8.8-7.2-16-16-16L112 64c-8.8 0-16 7.2-16 16z"/></svg>
+              <h1 class='text-sm text-slate-100 font-bold'>РЕМОНТ ТОПЛИВНОЙ СИСТЕМЫ</h1>
+          </div>
+          <div class='bg-gray-900 w-36 h-36 md:w-52 md:h-48 flex flex-col justify-between p-4 md:p-8'>
+              <svg class="h-10 w-10 md:h-12 md:w-12 fill-white" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#ffffff" d="M19 21H5v1a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1v-9l2.417-4.029A2 2 0 0 1 6.132 8h11.736a2 2 0 0 1 1.715.971L22 13v9a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1zM4.332 13h15.336l-1.8-3H6.132zM6.5 18a1.5 1.5 0 1 0 0-3a1.5 1.5 0 0 0 0 3m11 0a1.5 1.5 0 1 0 0-3a1.5 1.5 0 0 0 0 3M5.44 3.44L6.5 2.378l1.06 1.06a1.5 1.5 0 1 1-2.121 0m5.5 0L12 2.378l1.06 1.06a1.5 1.5 0 1 1-2.121 0m5.5 0l1.06-1.061l1.06 1.06a1.5 1.5 0 1 1-2.121 0"/></svg>
+              <h1 class='text-sm text-slate-100 font-bold'>МОЙКА И ДЕТЕЙЛИНГ</h1>
+          </div>
+          <div class='bg-gray-900 w-36 h-36 md:w-52 md:h-48 flex flex-col justify-between p-4 md:p-8'>
+              <svg class="h-10 w-10 md:h-12 md:w-12 fill-white" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="none"><path d="M24 0v24H0V0zM12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035c-.01-.004-.019-.001-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427c-.002-.01-.009-.017-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093c.012.004.023 0 .029-.008l.004-.014l-.034-.614c-.003-.012-.01-.02-.02-.022m-.715.002a.023.023 0 0 0-.027.006l-.006.014l-.034.614c0 .012.007.02.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z"/><path fill="#ffffff" d="M7.587 2.27c.108-.05.218-.098.33-.144l.345-.135c1.643-.607 3.812-.878 7.48.039c1.639.41 2.87 1.684 3.668 3.12C20.412 6.954 21 9.378 21 12c0 2.623-.588 5.046-1.59 6.85c-.799 1.436-2.03 2.71-3.668 3.12c-3.668.917-5.837.646-7.48.04l-.344-.136a10.802 10.802 0 0 1-.33-.143c-1.397-.633-2.538-1.974-3.322-3.638C3.473 16.41 3 14.309 3 12s.473-4.41 1.266-6.093C5.05 4.243 6.19 2.902 7.587 2.27M15 4c-.853 0-1.835.634-2.661 2.122C11.53 7.576 11 9.652 11 12c0 2.348.53 4.424 1.339 5.878C13.165 19.366 14.147 20 15 20s1.835-.634 2.661-2.122C18.47 16.424 19 14.348 19 12c0-2.348-.53-4.424-1.339-5.878C16.835 4.634 15.853 4 15 4m0 4.5c.706 0 1.21.559 1.508 1.155c.313.626.492 1.456.492 2.345c0 .89-.18 1.719-.492 2.345c-.298.596-.802 1.155-1.508 1.155s-1.21-.559-1.508-1.155C13.18 13.719 13 12.889 13 12c0-.89.18-1.719.492-2.345C13.79 9.06 14.294 8.5 15 8.5"/></g></svg>
+              <h1 class='text-sm text-slate-100 font-bold'>ШИНОМОНТАЖ</h1>
+          </div>
       </div>
-      <div class='flex flex-col md:flex-row justify-center items-center w-full bg-red-700 py-5 text-white'>
-        <div class='flex flex-col border-x-8 border-dashed p-10'>
-          <p class='text-lg'>Купон</p>
-          <h1 class='font-bold text-6xl'>25%</h1>
-          <h1 class='text-2xl'>СКИДКА</h1>
-        </div>
-        <div class='flex flex-col p-10'>
-          <h1 class='text-4xl'>НАШИ ПОСЛЕДНИЕ СПЕЦИАЛЬНЫЕ ПРЕДЛОЖЕНИЯ</h1>
-          <h1 class='text-4xl font-bold mt-1.5'>ЛЮБАЯ УСЛУГА НА СУММУ ОТ 5000 РУБЛЕЙ</h1>
-          <p class='mt-3'>Мы ценим наших клиентов, поэтому хотим дать вам эту специальную скидку,<br/> чтобы вы могли использовать ее, чтобы сделать свой автомобиль лучше!</p>
-          <button class='md:w-72 bg-white mt-2 p-2 text-red-700 font-bold hover:bg-gray-900 active:bg-white'>ПОЛУЧИТЬ СКИДКУ</button>
-        </div>
-      </div>
-<div id="myModal" class="hidden fixed z-30 top-0 left-0 w-full h-full bg-black/75">
-    <div class="modal-content bg-white sm:w-full h-full md:w-1/2 lg:w-1/4">
-        <div class="flex justify-end">
-            <div class="close bg-black h-8 w-8 flex justify-center items-center">
-                <svg class='h-6 fill-white font-light hover:fill-red-700' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/></svg>
+    <style>
+        .category-header {
+            transition: background-color 0.2s;
+        }
+        .category-header:hover {
+            background-color: #e5e7eb !important;
+        }
+        .arrow {
+            transition: transform 0.3s;
+        }
+        .category.active .arrow {
+            transform: rotate(90deg);
+        }
+        .category-content {
+            transition: max-height 0.3s ease-out;
+            max-height: 0;
+            overflow: hidden;
+        }
+        .category.active .category-content {
+            max-height: 1000px;
+            display: block;
+        }
+    </style>
+        <div id="myModal" class="hidden overflow-auto fixed z-30 top-0 left-0 w-full h-full bg-black/75">
+            <div class="modal-content overflow-auto bg-white sm:w-full h-full md:w-1/2 lg:w-1/4">
+                <div class="flex justify-end">
+                    <div class="close bg-black h-8 w-8 flex justify-center items-center">
+                        <svg class='h-6 fill-white font-light hover:fill-red-700' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/></svg>
+                    </div>
+                </div>
+                <h1 class='text-center text-slate-400 text-2xl font-semibold mt-5'>Заполните заявку</h1>
+                {% if not request.user.is_anonymous %}
+                    <form method="post" action="{% url 'add_order' %}" class="flex flex-col gap-4 p-5">
+                        {% csrf_token %}
+                        <input type="hidden" name="next" value="{{ request.path }}">
+                        {% for field in form_order %}
+                            {% if field.name != 'service' and field.name != 'comment' and field.name != 'datetime' %}
+                                <div class="flex-flex-col">
+                                    <p class="text-slate-400 text-xl">{{ field.label }}</p>
+                                    <p class="text-slate-600 w-full">{{ field }}</p>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+
+                        <div class="flex-flex-col">
+                            <p class="text-slate-400 text-xl">Услуги</p>
+                            <div id="services-container" class="mt-2">
+                                {% for category in service_categories %}
+                                <div class="category mb-3 border rounded-lg overflow-hidden">
+                                    <div class="category-header bg-gray-100 p-3 cursor-pointer flex justify-between items-center">
+                                        <span class="font-medium">{{ category.name }}</span>
+                                        <span class="arrow">›</span>
+                                    </div>
+                                    <div class="category-content hidden p-3 bg-white">
+                                        {% for service in category.services.all %}
+                                        <div class="service-item flex items-center mb-2">
+                                            <input type="checkbox" name="service" id="service-{{ service.id }}" value="{{ service.id }}"
+                                                   class="mr-2 h-5 w-5 text-red-600 rounded">
+                                            <label for="service-{{ service.id }}" class="text-slate-600">{{ service.name }}</label>
+                                        </div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <div class="flex-flex-col">
+                            <p class="text-slate-400 text-xl">{{ form_order.datetime.label }}</p>
+                            <p class="text-slate-600 w-full">{{ form_order.datetime }}</p>
+                        </div>
+                        {% if form_order.datetime.errors %}
+                                <div class="bg-red-500 my-2 flex items-center justify-center text-gray-650 rounded-lg p-1">
+                                    {{ form_order.datetime.errors }}
+                                </div>
+                        {% endif %}
+                        <div class="flex-flex-col">
+                            <p class="text-slate-400 text-xl">{{ form_order.comment.label }}</p>
+                            <p class="text-slate-600 w-full">{{ form_order.comment }}</p>
+                        </div>
+                        <input type="submit" value="Отправить" class="bg-red-600 hover:bg-gray-900 p-3 mt-2 text-lg text-white font-bold">
+                    </form>
+                {% else %}
+                    <form method="post" action="{% url 'add_order' %}" class="flex flex-col p-5">
+                        {% csrf_token %}
+                        <input type="hidden" name="next" value="{{ request.path }}">
+                        {% for field in form_order_anon %}
+                            {% if field.name != 'service' and field.name != 'comment' and field.name != 'datetime' %}
+                                <div class="flex-flex-col">
+                                    <p class="text-slate-400 text-xl">{{ field.label }}</p>
+                                    <p class="text-slate-600 w-full">{{ field }}</p>
+                                </div>
+                                {% if field.errors %}
+                                    <div class="bg-red-500 my-2 flex items-center justify-center text-gray-650 rounded-lg p-1">
+                                        {{ field.errors }}
+                                    </div>
+                                {% endif %}
+                            {% endif %}
+                        {% endfor %}
+
+                        <div class="flex-flex-col">
+                            <p class="text-slate-400 text-xl">Услуги</p>
+                            <div id="services-container" class="mt-2">
+                                {% for category in service_categories %}
+                                <div class="category mb-3 border rounded-lg overflow-hidden">
+                                    <div class="category-header bg-gray-100 p-3 cursor-pointer flex justify-between items-center">
+                                        <span class="font-medium">{{ category.name }}</span>
+                                        <span class="arrow">›</span>
+                                    </div>
+                                    <div class="category-content hidden p-3 bg-white">
+                                        {% for service in category.services.all %}
+                                        <div class="service-item flex items-center mb-2">
+                                            <input type="checkbox" name="service" id="service-{{ service.id }}" value="{{ service.id }}"
+                                                   class="mr-2 h-5 w-5 text-red-600 rounded">
+                                            <label for="service-{{ service.id }}" class="text-slate-600">{{ service.name }}</label>
+                                        </div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <div class="flex-flex-col">
+                            <p class="text-slate-400 text-xl">{{ form_order_anon.datetime.label }}</p>
+                            <p class="text-slate-600 w-full">{{ form_order_anon.datetime }}</p>
+                        </div>
+                        {% if form_order_anon.datetime.errors %}
+                                <div class="bg-red-500 my-2 flex items-center justify-center text-gray-650 rounded-lg p-1">
+                                    {{ form_order_anon.datetime.errors }}
+                                </div>
+                        {% endif %}
+                        <div class="flex-flex-col">
+                            <p class="text-slate-400 text-xl">{{ form_order_anon.comment.label }}</p>
+                            <p class="text-slate-600 w-full">{{ form_order_anon.comment }}</p>
+                        </div>
+
+                        <input type="submit" value="Отправить" class="bg-red-600 hover:bg-gray-900 p-3 mt-2 text-lg text-white font-bold">
+                    </form>
+                {% endif %}
             </div>
         </div>
-        <form method="post" action="{% url 'add_order_index' %}" class="">
+        <div class='flex flex-col justify-center items-center text-5xl text-center pt-10'>
+            <h1>ПОЧЕМУ СТОИТ ВЫБРАТЬ</h1>
+            <h1 class='font-bold'>НАШ АВТОСАЛОН?</h1>
+        </div>
+        <div class='flex flex-col w-full md:flex md:flex-row justify-center gap-10 md:px-20 md:py-10'>
+            <div class='bg-slate-100 flex flex-col gap-5 p-10 m-5 md:p-8 rounded-xl'>
+              <button class='bg-red-700 h-16 w-16 flex justify-center items-center rounded-full'><svg class='h-8 fill-white' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M64 0C28.7 0 0 28.7 0 64V448c0 35.3 28.7 64 64 64H320c35.3 0 64-28.7 64-64V64c0-35.3-28.7-64-64-64H64zM96 64H288c17.7 0 32 14.3 32 32v32c0 17.7-14.3 32-32 32H96c-17.7 0-32-14.3-32-32V96c0-17.7 14.3-32 32-32zm32 160a32 32 0 1 1 -64 0 32 32 0 1 1 64 0zM96 352a32 32 0 1 1 0-64 32 32 0 1 1 0 64zM64 416c0-17.7 14.3-32 32-32h96c17.7 0 32 14.3 32 32s-14.3 32-32 32H96c-17.7 0-32-14.3-32-32zM192 256a32 32 0 1 1 0-64 32 32 0 1 1 0 64zm32 64a32 32 0 1 1 -64 0 32 32 0 1 1 64 0zm64-64a32 32 0 1 1 0-64 32 32 0 1 1 0 64zm32 64a32 32 0 1 1 -64 0 32 32 0 1 1 64 0zM288 448a32 32 0 1 1 0-64 32 32 0 1 1 0 64z"/></svg></button>
+              <h1 class='font-bold text-2xl'>ОЦЕНКА</h1>
+              <p class='text-slate-500'>Мы являемся сервисом, который справедливо оценивает проблемы с автомобилем и
+                предоставляет вам точную помощь, необходимую для обеспечения безопасности вашего автомобиля!</p>
+            </div>
+            <div class='bg-slate-100 flex flex-col gap-5 p-10 m-5 md:p-8 rounded-xl'>
+              <button class='bg-red-700 h-16 w-16 flex justify-center items-center rounded-full'><svg class='h-8 fill-white' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M320 464c8.8 0 16-7.2 16-16V160H256c-17.7 0-32-14.3-32-32V48H64c-8.8 0-16 7.2-16 16V448c0 8.8 7.2 16 16 16H320zM0 64C0 28.7 28.7 0 64 0H229.5c17 0 33.3 6.7 45.3 18.7l90.5 90.5c12 12 18.7 28.3 18.7 45.3V448c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V64z"/></svg></button>
+              <h1 class='font-bold text-2xl'>ДОВЕРЕННЫЙ</h1>
+              <p class='text-slate-500'>Многие довольные клиенты возвращаются в наш сертифицированный сервис, чтобы
+                получить профилактическое обслуживание или помощь наших квалифицированных автомехаников!</p>
+            </div>
+            <div class='bg-slate-100 flex flex-col gap-5 p-10 m-5 md:p-8 rounded-xl'>
+              <button class='bg-red-700 h-16 w-16 flex justify-center items-center rounded-full'><svg class='h-8 fill-white' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M4.1 38.2C1.4 34.2 0 29.4 0 24.6C0 11 11 0 24.6 0L133.9 0c11.2 0 21.7 5.9 27.4 15.5l68.5 114.1c-48.2 6.1-91.3 28.6-123.4 61.9L4.1 38.2zm503.7 0L405.6 191.5c-32.1-33.3-75.2-55.8-123.4-61.9L350.7 15.5C356.5 5.9 366.9 0 378.1 0L487.4 0C501 0 512 11 512 24.6c0 4.8-1.4 9.6-4.1 13.6zM80 336a176 176 0 1 1 352 0A176 176 0 1 1 80 336zm184.4-94.9c-3.4-7-13.3-7-16.8 0l-22.4 45.4c-1.4 2.8-4 4.7-7 5.1L168 298.9c-7.7 1.1-10.7 10.5-5.2 16l36.3 35.4c2.2 2.2 3.2 5.2 2.7 8.3l-8.6 49.9c-1.3 7.6 6.7 13.5 13.6 9.9l44.8-23.6c2.7-1.4 6-1.4 8.7 0l44.8 23.6c6.9 3.6 14.9-2.2 13.6-9.9l-8.6-49.9c-.5-3 .5-6.1 2.7-8.3l36.3-35.4c5.6-5.4 2.5-14.8-5.2-16l-50.1-7.3c-3-.4-5.7-2.4-7-5.1l-22.4-45.4z"/></svg></button>
+              <h1 class='font-bold text-2xl'>ГАРАНТИИ</h1>
+              <p class='text-slate-500'>Мы гарантируем качество выполненных работ. Именно поэтому мы готовы решить любую
+                возникшую вновь возникшую проблему бесплатно!</p>
+            </div>
+        </div>
+      <div class='bg-zinc-900	w-full flex flex-col justify-between items-center p-14'>
+          <p class='text-center text-gray-400 mb-2'>НЕМНОГО СТАТИСТИКИ О НАС</p>
+          <h1 class='text-slate-100 font-bold	text-4xl text-center'>СТАТИСТИКА ПО РЕМОНТУ АВТОМОБИЛЕЙ</h1>
+          <h1 class='text-slate-100 font-light	mb-2 mt-2 text-4xl text-center'>КОТОРУЮ ВЫ ДОЛЖНЫ ЗНАТЬ</h1>
+        <div class='w-full flex flex-col md:flex md:flex-row justify-center'>
+          <div class='flex flex-col items-center'>
+            <h1 class='text-red-700 font-bold text-6xl mb-1'>10</h1>
+            <div class='text-2xl text-slate-100 border-t w-11/12 text-center mt-2 p-1'>
+              <h1 class='font-light'>ЛЕТ</h1>
+              <h1 class='font-bold'>ОПЫТА</h1>
+            </div>
+          </div>
+          <div class='flex flex-col items-center'>
+            <h1 class='text-red-700 font-bold text-6xl mb-1'>32</h1>
+            <div class='text-2xl text-slate-100 border-t w-11/12 text-center mt-2 p-1'>
+              <h1 class='font-light'>ПРОФЕССИОНАЛА И</h1>
+              <h1 class='font-bold'>РАБОТНИКОВ</h1>
+            </div>
+          </div>
+          <div class='flex flex-col items-center'>
+            <h1 class='text-red-700 font-bold text-6xl mb-1'>2578</h1>
+            <div class='text-2xl text-slate-100 border-t w-11/12 text-center mt-2 p-1'>
+              <h1 class='font-light'>ДОВОЛЬНЫХ</h1>
+              <h1 class='font-bold'>КЛИЕНТОВ</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class='grid grid-cols-1 place-items-center	md:grid-cols-2 lg:flex lg:flex-row justify-center items-center gap-5 p-10'>
+        <img src="{% static './img/about_img/img5.jpg' %}" alt="img" class='h-full w-full md:h-[220px] md:w-auto' />
+        <img src="{% static './img/about_img/img6.jpg' %}" alt="img" class='h-full w-full md:h-[220px] md:w-auto' />
+        <img src="{% static './img/about_img/img7.jpg' %}" alt="img" class='h-full w-full md:h-[220px] md:w-auto' />
+        <img src="{% static './img/about_img/img8.jpg' %}" alt="img" class='h-full w-full md:h-[220px] md:w-auto' />
+      </div>
+      <div class='flex flex-col justify-center items-center mt-5 p-12 bg-slate-100'>
+        <p class='text-slate-400 font-bold text-2xl'>ОТЗЫВЫ</p>
+        <h1 class='text-center font-bold text-4xl mt-2'>ЧТО ГОВОРЯТ НАШИ КЛИЕНТЫ</h1>
+          <form action="{% url 'add_reviews' %}" method="post" class="w-full flex flex-col justify-center items-center mt-6">
             {% csrf_token %}
-            {% for field in form %}
-                {{ field }}
+            <input name="text" type="text" class="text-red-700 text-3xl border-b border-black p-2 outline-none bg-slate-100 text-center w-96" placeholder="Оставте отзыв здесь...">
+            <div>
+              <button type="submit" class=" mt-6 md:w-72 bg-red-700 mt-2 p-2 text-white text-lg font-bold hover:bg-gray-900 active:bg-red-700">Оставить отзыв</button>
+            </div>
+          </form>
+        <div class='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-6'>
+            {% for reviews in reviews %}
+                <div class='py-6 px-4 flex flex-row justify-center items-center gap-6 bg-white'>
+                    <div class='flex items-start h-full'><svg class='h-10 fill-red-700' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M0 216C0 149.7 53.7 96 120 96h8c17.7 0 32 14.3 32 32s-14.3 32-32 32h-8c-30.9 0-56 25.1-56 56v8h64c35.3 0 64 28.7 64 64v64c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V320 288 216zm256 0c0-66.3 53.7-120 120-120h8c17.7 0 32 14.3 32 32s-14.3 32-32 32h-8c-30.9 0-56 25.1-56 56v8h64c35.3 0 64 28.7 64 64v64c0 35.3-28.7 64-64 64H320c-35.3 0-64-28.7-64-64V320 288 216z"/></svg></div>
+                    <div class='flex flex-col justify-between h-full gap-3'>
+                      <p class='text-slate-500'>{{ reviews.text }}</p>
+                      <div>
+                          {% if reviews.user == None %}
+                            <p class='font-bold'>Анонимно</p>
+                          {% else %}
+                            <p class='font-bold'>{{ reviews.user.userprofile.fio }}</p>
+                          {% endif %}
+                            <p class='text-slate-500'>{{ reviews.datetime }}</p>
+                      </div>
+                    </div>
+                </div>
             {% endfor %}
-            <input type="submit" value="Отправить" class="">
-        </form>
-    </div>
-</div>
+        </div>
+      </div>
 <script>
-const modal = document.getElementById("myModal");
-const btn = document.getElementById("openModal");
-const span = document.getElementsByClassName("close")[0];
+    const modal = document.getElementById("myModal");
+    const btn = document.getElementById("openModal");
+    const span = document.getElementsByClassName("close")[0];
 
-btn.onclick = function() {
-    modal.style.display = "block";
-    document.body.classList.add('overflow-hidden');
-}
+    btn.onclick = function() {
+        modal.style.display = "block";
+        document.body.classList.add('overflow-hidden');
+    }
 
-span.onclick = function() {
-    modal.style.display = "none";
-    document.body.classList.remove ('overflow-hidden');
-}
-
-window.onclick = function(event) {
-    if (event.target == modal) {
+    span.onclick = function() {
         modal.style.display = "none";
         document.body.classList.remove ('overflow-hidden');
     }
-}
+
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+            document.body.classList.remove ('overflow-hidden');
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('.category-header').forEach(header => {
+            header.addEventListener('click', function() {
+                this.parentElement.classList.toggle('active');
+            });
+        });
+
+        const markSelect = document.getElementById('id_mark');
+        const modelSelect = document.getElementById('id_car_model');
+
+        if (markSelect && modelSelect) {
+            markSelect.addEventListener('change', function() {
+                const markId = this.value;
+
+                if (markId) {
+                    fetch(`/get_models/?mark_id=${markId}`)
+                        .then(response => response.json())
+                        .then(data => {
+                            modelSelect.innerHTML = '';
+
+                            const emptyOption = document.createElement('option');
+                            emptyOption.value = '';
+                            emptyOption.textContent = 'Выберите модель';
+                            modelSelect.appendChild(emptyOption);
+
+                            data.models.forEach(model => {
+                                const option = document.createElement('option');
+                                option.value = model.id;
+                                option.textContent = model.model;
+                                modelSelect.appendChild(option);
+                            });
+                        })
+                        .catch(error => console.error('Error:', error));
+                } else {
+                    modelSelect.innerHTML = '';
+                    const emptyOption = document.createElement('option');
+                    emptyOption.value = '';
+                    emptyOption.textContent = 'Сначала выберите марку';
+                    modelSelect.appendChild(emptyOption);
+                }
+            });
+
+            if (markSelect.value) {
+                markSelect.dispatchEvent(new Event('change'));
+            }
+        }
+    });
 </script>
 {% endblock %}

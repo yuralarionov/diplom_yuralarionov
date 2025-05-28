@@ -2,5 +2,147 @@
 {% load static %}
 {% block title %}Панель администратора{% endblock %}
 {% block content %}
-<a href="{% url 'logout' %}">Выход</a>
+<div class="flex flex-col p-4 bg-slate-100">
+    <div>
+        <button class="ml-5 px-4 py-2 text-white font-bold bg-gray-900 hover:bg-red-600 active:bg-gray-900"><a href="{% url 'logout' %}" class="">Выход</a></button>
+    </div>
+    <div class="grid grid-cols-3 gap-10 p-5">
+        {% for order in order %}
+            <div class="flex flex-col justify-between p-5 shadow-lg rounded-2xl bg-white">
+                <h1 class="text-2xl font-semibold">Заявка №{{ order.id }}</h1>
+                <h1 class="text-2xl font-semibold">{{ order.auto.mark_model }} {{ order.auto.gos_num }}</h1>
+                {% if order.mark and order.car_model and order.gos_num %}
+                <h1 class="text-2xl font-semibold">{{ order.mark }} {{ order.car_model }} {{ order.gos_num }}</h1>
+                {% endif %}
+                <div class="flex flex-col gap-1 mt-2">
+                    {% if order.user.userprofile.fio %}
+                    <p>ФИО - {{ order.user.userprofile.fio }}</p>
+                    {% endif %}
+                    {% if order.user.userprofile.phone %}
+                    <p>Телефон - {{ order.user.userprofile.phone }}</p>
+                    {% endif %}
+                    {% if order.fio %}
+                    <p>ФИО - {{ order.fio }}</p>
+                    {% endif %}
+                    {% if order.phone %}
+                    <p>Телефон - {{ order.phone }}</p>
+                    {% endif %}
+                    <div>
+                        <p>Услуги:</p>
+                        <ul class="ml-4">
+                            {% for service in order.service.all %}
+                                <li type="1">{{ service.name }} - {{ service.price }} ₽</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <p>Время записи - {{ order.datetime }}</p>
+                    {% if order.comment %}
+                        <p>Доп. информация, оставленная при заказе - {{ order.comment }}</p>
+                    {% else %}
+                        <p>Доп. информация, оставленная при заказе - не указано</p>
+                    {% endif %}
+                    {% if order.worker %}
+                        <p>Работник - {{ order.worker }}</p>
+                    {% endif %}
+                    {% if order.info %}
+                        <p>Доп. информация, оставленный работником - {{ order.info }}</p>
+                    {% endif %}
+                    {% if order.reason %}
+                        <p>Причина отмены - {{ order.reason }}</p>
+                    {% endif %}
+                    <p>Время создание заявки - {{ order.create_date }}</p>
+                    <p>Статус - {{ order.get_status_display }}</p>
+                </div>
+                <div>
+                    <button onclick="openModal({{ order.id }})" class="p-2 rounded-xl bg-red-700 text-white font-semibold mt-2">Изменить заявку</button>
+                </div>
+                <div id="modal-{{ order.id }}" class="fixed hidden inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center">
+                    <div class="bg-white rounded-lg w-full max-w-md">
+                        <div class="flex justify-between items-center border-b p-4">
+                            <h3 class="text-lg font-semibold">Изменение заявки №{{ order.id }}</h3>
+                            <button onclick="closeModal({{ order.id }})" class="text-gray-500 hover:text-gray-700">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                </svg>
+                            </button>
+                        </div>
+                        <form method="POST" action="{% url 'change_order' order.pk %}" class="p-4">
+                            {% csrf_token %}
+                            <div class="mb-4">
+                                <label for="datetime-{{ order.id }}" class="block font-medium mb-1">Время записи:</label>
+                                <input id="datetime-{{ order.id }}" name="datetime" type="datetime-local" class="w-full px-3 py-2 border-b border-black outline-none">
+                            </div>
+                            <div class="mb-4">
+                                <label for="worker-{{ order.id }}" class="block font-medium mb-1">Работник:</label>
+                                <input id="worker-{{ order.id }}" name="worker" class="w-full px-3 py-2 border-b border-black outline-none">
+                            </div>
+                                <div class="mb-4">
+                                <label for="info-{{ order.id }}" class="block font-medium mb-1">Доп. информация:</label>
+                                <input id="info-{{ order.id }}" name="info" class="w-full px-3 py-2 border-b border-black outline-none">
+                            </div>
+                            <button type="submit" class="px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700">Отправить</button>
+                        </form>
+                    </div>
+                </div>
+            <script>
+                function openModal(orderId) {
+                    const modal = document.getElementById(`modal-${orderId}`);
+                    modal.classList.remove('hidden');
+                    document.body.style.overflow = 'hidden';
+                }
+
+                function closeModal(orderId) {
+                    const modal = document.getElementById(`modal-${orderId}`);
+                    modal.classList.add('hidden');
+                    document.body.style.overflow = 'auto';
+                }
+
+                document.addEventListener('click', function(event) {
+                    if (event.target.classList.contains('fixed')) {
+                        const orderId = event.target.id.split('-')[1];
+                        closeModal(orderId);
+                    }
+                });
+            </script>
+                <div class="grid grid-cols-3 gap-3 text-center text-lg mt-2">
+                    {% if order.status == '0' or order.status == '1' %}
+                    <a href="{% url 'waiting' order.pk %}" class="p-1 bg-orange-400 rounded-xl">Ожидание</a>
+                    <a href="{% url 'agreement' order.pk %}" class="p-1 bg-indigo-500 rounded-xl">Согласование</a>
+                    <button onclick="openModalCancel({{ order.id }})" class="p-1 bg-red-400 rounded-xl">Отменено</button>
+                    {% endif %}
+                    {% if order.status == '2' %}
+                    <a href="{% url 'waiting' order.pk %}" class="p-1 bg-orange-400 rounded-xl">Ожидание</a>
+                    <a href="{% url 'agreement' order.pk %}" class="p-1 bg-indigo-500 rounded-xl">Согласование</a>
+                    <a href="{% url 'at_work' order.pk %}" class="p-1 bg-blue-600 rounded-xl">В работе</a>
+                    <button onclick="openModalCancel({{ order.id }})" class="p-1 bg-red-400 rounded-xl">Отменено</button>
+                    {% endif %}
+                    {% if order.status == '3' %}
+                    <a href="{% url 'ready' order.pk %}" class="p-1 bg-lime-500 rounded-xl">Готово</a>
+                    {% endif %}
+                    {% if order.status == '4' %}
+                    <a href="{% url 'given' order.pk %}" class="p-1 bg-green-700 rounded-xl">Выдано</a>
+                    {% endif %}
+                </div>
+            </div>
+            <div id="modalCancel-{{ order.id }}" class="fixed hidden inset-0 bg-black/75 z-50 flex items-center justify-center">
+                <div class="bg-white rounded-lg w-96">
+                    <div class="flex justify-between items-center border-b p-4">
+                        <h3 class="text-lg font-semibold">Отмена заявки №{{ order.id }}</h3>
+                        <button onclick="closeModalCancel({{ order.id }})" class="text-gray-500 hover:text-gray-700">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                        </button>
+                    </div>
+                    <form method="POST" action="{% url 'cancel' order.pk %}" class="p-4">
+                        {% csrf_token %}
+                        <div class="mb-4">
+                            <label for="reason-{{ order.id }}" class="block font-medium mb-1">Причина отмены:</label>
+                            <input id="reason-{{ order.id }}" name="reason" class="w-full px-3 py-2 border-b border-black outline-none" required>
+                        </div>
+                        <button type="submit" class="px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700">Подтвердить отмену</button>
+                    </form>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
 {% endblock %}

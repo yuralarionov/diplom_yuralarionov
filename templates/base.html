@@ -5,11 +5,70 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="{% static 'output.css' %}" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'swiper-bundle.min.css' %}"/>
-    <script src="{% static 'swiper-bundle.min.js' %}"></script>
     <title>{% block title %}{% endblock %}</title>
+    <script>
+        // Функция для показа уведомлений
+        function showNotification(message, type = 'success') {
+            const container = document.getElementById('notifications-container');
+            const notification = document.createElement('div');
+
+            notification.className = `mb-2 px-6 py-4 rounded-lg shadow-lg border-l-4 ${
+                type === 'success'
+                    ? 'bg-green-100 border-green-500 text-green-700'
+                    : 'bg-red-100 border-red-500 text-red-700'
+            } animate-fade-in`;
+
+            notification.innerHTML = `
+                <div class="flex items-center">
+                    <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        ${type === 'success'
+                            ? '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>'
+                            : '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>'}
+                    </svg>
+                    <span>${message}</span>
+                    <button class="ml-4 text-gray-500 hover:text-gray-700" onclick="this.parentElement.parentElement.remove()">
+                        ✕
+                    </button>
+                </div>
+            `;
+
+            container.prepend(notification);
+
+            // Автоудаление через 5 секунд
+            setTimeout(() => {
+                notification.classList.add('animate-fade-out');
+                setTimeout(() => notification.remove(), 300);
+            }, 5000);
+        }
+
+        // Показать сообщения при загрузке страницы
+        document.addEventListener('DOMContentLoaded', function() {
+            const messages = document.querySelectorAll('.django-message');
+            messages.forEach(msg => {
+                const type = msg.classList.contains('error') ? 'error' : 'success';
+                showNotification(msg.textContent.trim(), type);
+                msg.remove(); // Удаляем оригинальное сообщение
+            });
+        });
+    </script>
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeOut {
+            from { opacity: 1; }
+            to { opacity: 0; }
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.3s ease-out forwards;
+        }
+        .animate-fade-out {
+            animation: fadeOut 0.3s ease-out forwards;
+        }
+    </style>
 </head>
-<body class="relative">
+<body class="relative min-h-screen">
     <header class='h-[90px] w-full md:h-[135px] py-2 md:flex md:flex-col justify-center items-center lg:h-[90px] lg:flex-row lg:justify-between bg-zinc-900 px-3 w-full'>
         <a href = "{% url 'index' %}"><img src='{% static "img/logo.png" %}' alt='img' class='h-20	w-auto' /></a >
           <div class='hidden md:flex flex-row justify-center items-center lg:items-center gap-10  my-2 text-white text-lg'>
@@ -34,9 +93,21 @@
             {% endif %}
           </div>
     </header>
-        {% block content %}
-        {% endblock %}
-    <footer class='bg-zinc-900 flex flex-col items-center p-5'>
+        <main class="pb-[150px]">
+            <div id="notifications-container" class="fixed top-5 right-5 z-50 w-80"></div>
+            {% if messages %}
+                <div class="hidden">
+                    {% for message in messages %}
+                        <div class="django-message {% if message.tags == 'error' %}error{% else %}success{% endif %}">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+            {% block content %}
+            {% endblock %}
+        </main>
+    <footer class='bg-zinc-900 flex flex-col items-center p-5 absolute bottom-0 w-full'>
         <a href="{% url 'index' %}"><img src="{% static 'img/logo.png' %}" alt='img' class='h-20 w-auto' /></a>
         <p class='text-red-600 border-t w-11/12 text-center mt-2'>Zemes&copy;. All rights reserved.</p>
     </footer>
