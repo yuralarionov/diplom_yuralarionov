@@ -72,12 +72,17 @@ WSGI_APPLICATION = 'diplom.wsgi.application'
 
 
 # Database
-# https://docs.djangoproject.com/en/5.1/ref/settings/#databases
+# postgresql://postgres:zpmMlRJFeUqRXYnQWYjOtUgKZHahfDfd@postgres.railway.internal:5432/railway
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'URL': os.getenv('postgresql://postgres:zpmMlRJFeUqRXYnQWYjOtUgKZHahfDfd@postgres.railway.internal:5432/railway'),
+        'NAME': os.getenv('railway'),
+        'USER': os.getenv('postgres'),
+        'PASSWORD': os.getenv('zpmMlRJFeUqRXYnQWYjOtUgKZHahfDfd'),
+        'HOST': os.getenv('postgres.railway.internal'),
+        'PORT': os.getenv(5432),
     }
 }
 

@@ -1,0 +1,14 @@
+{
+    "builds": [
+      {
+        "src": "diplom/wsgi.py",
+        "use": "@vercel/python"
+      }
+    ],
+    "routes": [
+      {
+        "src": "/(.*)",
+        "dest": "diplom/wsgi.py"
+      }
+    ]
+}
