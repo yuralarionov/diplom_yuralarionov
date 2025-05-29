@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-(hbl5q#4#!w^*fqyrsyfbk&&zvtds2$80gs2=!ga17bk^s$%p*
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['yuralarionov.pythonanywhere.com', '127.0.0.1']
 
 
 # Application definition
@@ -72,17 +72,12 @@ WSGI_APPLICATION = 'diplom.wsgi.application'
 
 
 # Database
-# postgresql://postgres:zpmMlRJFeUqRXYnQWYjOtUgKZHahfDfd@postgres.railway.internal:5432/railway
+# https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'URL': os.getenv('postgresql://postgres:zpmMlRJFeUqRXYnQWYjOtUgKZHahfDfd@postgres.railway.internal:5432/railway'),
-        'NAME': os.getenv('railway'),
-        'USER': os.getenv('postgres'),
-        'PASSWORD': os.getenv('zpmMlRJFeUqRXYnQWYjOtUgKZHahfDfd'),
-        'HOST': os.getenv('postgres.railway.internal'),
-        'PORT': os.getenv(5432),
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
